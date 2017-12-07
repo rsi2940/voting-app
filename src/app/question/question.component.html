@@ -1,0 +1,10 @@
+<h2>Vote !!</h2>
+<div *ngIf="question">{{ (question | async).question}}</div>
+<div> Yes:
+  <button (click)="onYes()"
+          type="button"> Vote Yes</button>
+</div>
+<div> No:
+  <button (click)="onNo()"
+          type="button"> Vote No</button>
+</div>

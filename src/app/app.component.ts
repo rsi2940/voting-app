@@ -12,20 +12,9 @@ export interface User {
 
 @Component({
   selector: 'app-root',
-  styleUrls: ['./app.component.css'],
-  template: `<ul>
-  <li class="text" *ngFor="let user of users | async">
-    {{user.name}} is {{user.age}} y.o.
-  </li>
-</ul>
+  styleUrls: ['./app.component.scss'],
+  template: `<h1>Voting App</h1>
+  <router-outlet></router-outlet>
   `
 })
-export class AppComponent {
-  usersCollection: AngularFirestoreCollection<User>;
-  users: Observable<User[]>;
-  constructor(private db: AngularFirestore) {
-    // console.log(db.collection('users'));
-    this.usersCollection = db.collection<User>('users');
-    this.users = this.usersCollection.valueChanges();
-  }
-}
+export class AppComponent {}
