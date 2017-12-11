@@ -4,12 +4,7 @@ import {
   AngularFirestoreCollection
 } from 'angularfire2/firestore';
 
-export interface Question {
-  question: string;
-  yesVotes: number;
-  noVotes: number;
-  id: string;
-}
+import { Question } from '../question.model';
 
 @Component({
   selector: 'app-new-question',
@@ -18,7 +13,9 @@ export interface Question {
 })
 export class NewQuestionComponent implements OnInit {
   newQuestion: string;
+  emptyQuestion: boolean;
   questionsCollection: AngularFirestoreCollection<Question>;
+
   constructor(private afs: AngularFirestore) {
     this.questionsCollection = afs.collection<Question>('questions');
   }
@@ -26,13 +23,16 @@ export class NewQuestionComponent implements OnInit {
   ngOnInit() {}
 
   async onCreate() {
-    // console.log(this.newQuestion);
-    await this.questionsCollection.add({
-      question: this.newQuestion,
-      noVotes: 0,
-      yesVotes: 0,
-      id: ''
-    });
+    if (this.newQuestion) {
+      const title = this.newQuestion.trim();
+      await this.questionsCollection.add({
+        title: this.newQuestion,
+        votes: 0
+      });
+      this.emptyQuestion = false;
+    } else {
+      this.emptyQuestion = true;
+    }
 
     this.newQuestion = '';
   }

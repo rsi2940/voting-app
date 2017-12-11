@@ -1,10 +1,18 @@
-<h2>Vote !!</h2>
-<div *ngIf="question">{{ (question | async).question}}</div>
-<div> Yes:
-  <button (click)="onYes()"
-          type="button"> Vote Yes</button>
-</div>
-<div> No:
-  <button (click)="onNo()"
-          type="button"> Vote No</button>
+<h2>Vote on the question below!</h2>
+<div class="vote-container"
+     *ngIf="question | async as q">
+
+  <div class="question-title">{{q.title}}</div>
+  <div class="current-votes">{{q.votes}}</div>
+
+
+  <button type="button"
+          class="yes-button"
+          (click)="vote('yes')">Vote Yes</button>
+
+
+  <button type="button"
+          class="no-button"
+          (click)="vote('no')">Vote No</button>
+
 </div>

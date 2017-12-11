@@ -1,8 +1,14 @@
-<h2>Create a new question</h2>
-<label for=""></label>
-<input [(ngModel)]="newQuestion"
-       type="text"
-       name=""
-       id="">
-<button type="button"
-        (click)="onCreate()">Create</button>
+<div class="new-question-container">
+  <h2>Create a new question</h2>
+  <label>Question:</label>
+  <input [(ngModel)]="newQuestion"
+         type="text"
+         name=""
+         id="">
+  <button type="button"
+          (click)="onCreate()">Create</button>
+  <div *ngIf="emptyQuestion"
+       class="empty-question">
+    Please enter some text in the box above to add a question.
+  </div>
+</div>

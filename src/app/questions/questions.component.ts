@@ -3,7 +3,8 @@ import {
   AngularFirestore,
   AngularFirestoreCollection
 } from 'angularfire2/firestore';
-import { Question } from '../new-question/new-question.component';
+
+import { Question } from '../question.model';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -14,6 +15,7 @@ import { Observable } from 'rxjs/Observable';
 export class QuestionsComponent implements OnInit {
   questionsCollection: AngularFirestoreCollection<Question>;
   questions: Observable<Question[]>;
+
   constructor(private afs: AngularFirestore) {
     this.questionsCollection = afs.collection<Question>('questions');
     this.questions = this.questionsCollection.snapshotChanges().map(actions => {

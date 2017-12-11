@@ -1,0 +1,32 @@
+.vote-container {
+  display: grid;
+  grid-template-columns: 2rem 1fr 1fr 2rem;
+}
+
+.question-title,
+.current-votes {
+  grid-column: 2 / 4;
+  text-align: center;
+  color: white;
+}
+
+.question-title {
+  font-size: 3rem;
+}
+
+.current-votes {
+  font-size: 10rem;
+}
+
+.yes-button {
+  grid-column-start: 2;
+}
+
+.no-button {
+  grid-column-start: 3;
+}
+
+button {
+  width: 75%;
+  justify-self: center;
+}

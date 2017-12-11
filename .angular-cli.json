@@ -15,7 +15,10 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": ["styles.scss"],
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap-reboot.css",
+        "styles.scss"
+      ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -50,6 +53,8 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": { "spec": false }
+    "component": {
+      "spec": false
+    }
   }
 }
