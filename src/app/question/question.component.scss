@@ -1,32 +1,37 @@
 .vote-container {
   display: grid;
-  grid-template-columns: 2rem 1fr 1fr 2rem;
-}
-
-.question-title,
-.current-votes {
-  grid-column: 2 / 4;
-  text-align: center;
-  color: white;
+  grid-template-columns: 2rem 1fr 1fr 1fr 2rem;
 }
 
 .question-title {
-  font-size: 3rem;
+  grid-column: 2 / 5;
+  text-align: center;
+  color: white;
 }
-
 .current-votes {
-  font-size: 10rem;
+  grid-column-start: 3;
+  display: inline;
+  text-align: center;
+  color: white;
+  font-size: 5rem;
+}
+.question-title {
+  font-size: 2rem;
 }
 
 .yes-button {
+  display: inline;
   grid-column-start: 2;
 }
 
 .no-button {
-  grid-column-start: 3;
+  display: inline;
+  grid-column-start: 4;
+  justify-self: start;
 }
 
 button {
-  width: 75%;
-  justify-self: center;
+  width: 95%;
+  border-radius: 50%;
+  //justify-self: center;
 }

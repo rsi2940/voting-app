@@ -1,0 +1,18 @@
+:host {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+}
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2px;
+}
+a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  background-color: rgba(144, 238, 144, 0.25);
+}

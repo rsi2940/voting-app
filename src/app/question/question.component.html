@@ -3,13 +3,14 @@
      *ngIf="question | async as q">
 
   <div class="question-title">{{q.title}}</div>
-  <div class="current-votes">{{q.votes}}</div>
+
 
 
   <button type="button"
           class="yes-button"
           (click)="vote('yes')">Vote Yes</button>
 
+  <div class="current-votes">{{q.votes}}</div>
 
   <button type="button"
           class="no-button"

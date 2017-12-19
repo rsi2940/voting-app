@@ -1,3 +1,14 @@
-<p>
-  edit-question works!
-</p>
+<div class="edit-question-container">
+  <h2>Edit question</h2>
+  <label>Question:</label>
+  <input [(ngModel)]="currentQuestion"
+         type="text"
+         name=""
+         id="">
+  <button type="button"
+          (click)="onUpdate()">Update</button>
+  <div *ngIf="emptyQuestion"
+       class="empty-question">
+    Please enter some text in the box above to edit a question.
+  </div>
+</div>
