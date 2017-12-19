@@ -16,6 +16,7 @@ import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { AuthComponent } from './auth/auth.component';
     NavComponent,
     AuthComponent
   ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

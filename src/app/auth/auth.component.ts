@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { AuthService } from './auth.service';
 
 @Component({
   template: `
-    <div *ngIf="afAuth.authState | async; let user; else showLogin">
+    <div *ngIf="authService.afAuth.authState | async; let user; else showLogin">
       <h1>Hello {{ user.displayName }}!</h1>
       <button (click)="logout()">Logout</button>
     </div>
@@ -16,11 +17,11 @@ import * as firebase from 'firebase/app';
   `
 })
 export class AuthComponent {
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor(public authService: AuthService) {}
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.authService.signInWithGoogle();
   }
   logout() {
-    this.afAuth.auth.signOut();
+    this.authService.signOut();
   }
 }

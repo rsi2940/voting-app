@@ -29,11 +29,13 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.questionDocument = this.afs.collection('questions').doc(`${this.id}`);
+    this.questionDocument = this.afs
+      .collection('users/rishi/questions')
+      .doc(`${this.id}`);
     this.question = this.questionDocument.valueChanges();
     this.questionRef = this.fb
       .firestore()
-      .collection('questions')
+      .collection('users/rishi/questions')
       .doc(this.id);
   }
 

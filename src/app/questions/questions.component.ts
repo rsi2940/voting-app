@@ -6,6 +6,7 @@ import {
 
 import { Question } from '../question.model';
 import { Observable } from 'rxjs/Observable';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-questions',
@@ -16,8 +17,10 @@ export class QuestionsComponent implements OnInit {
   questionsCollection: AngularFirestoreCollection<Question>;
   questions: Observable<Question[]>;
 
-  constructor(private afs: AngularFirestore) {
-    this.questionsCollection = afs.collection<Question>('questions');
+  constructor(private afs: AngularFirestore, private authService: AuthService) {
+    this.questionsCollection = afs.collection<Question>(
+      `users/rishi/questions`
+    );
     this.questions = this.questionsCollection.snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data() as Question;
